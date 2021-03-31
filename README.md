@@ -8,6 +8,20 @@ Once you have installed Python, install Cookiecutter (a file and project generat
 
 `> pip install cookiecutter`
 
+Copy this repo to your computer.
+
+### With Git ###
+
+Clone this repo:
+
+`> git clone https://github.com/cmstead/lambda_cookiecutters.git`
+
+### Without Git ###
+
+Dowload the zip file:
+
+`https://github.com/cmstead/lambda_cookiecutters/archive/refs/heads/master.zip`
+
 ## Install the Cookiecutter Templates ##
 
 To install the templates in this repo, run the following command:
