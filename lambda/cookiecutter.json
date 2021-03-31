@@ -1,0 +1,8 @@
+{
+    "prefix": "",
+    "lambda_name": null,
+    "http_method": null,
+    "base_module_name": "{{cookiecutter.prefix|lower}}_{{cookiecutter.lambda_name|lower}}",
+    "base_class_name": "{{cookiecutter.prefix|title}}{{cookiecutter.lambda_name|title}}",
+    "python_version": ""
+}

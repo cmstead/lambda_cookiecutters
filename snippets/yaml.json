@@ -1,0 +1,49 @@
+{
+	"Layer Ref": {
+		"prefix": "layer-ref",
+		"body": [
+			"- !Ref ${1:LayerName}"
+		],
+		"description": "Add a layer reference"
+	},
+
+	"New Lambda": {
+		"prefix": "new-lambda",
+		"body": [
+			"${1:HttpMethod}${2:LambdaName}:",
+			"Type: AWS::Serverless::Function",
+			"Properties:",
+			"  CodeUri: ${3:path/to/handler_module}",
+			"  Handler: ${1/(.*)/${1:/downcase}/}_handler.lambda_handler",
+			"  Runtime: python${4:3.8}",
+			"  Layers:${5:\n    ${6:layer_ref}}",
+			"  Environment:",
+			"    Variables:",
+			"  Events:",
+			"    $2:",
+			"      Type: Api",
+			"      Properties:",
+			"        Path: /${2/(.*)/${1:/downcase}/}",
+			"        Method: ${1/(.*)/${1:/downcase}/}"
+		
+		],
+		"description": "Create a new lambda definition in a template file"
+	},
+
+    "New Layer": {
+        "prefix": "new-layer",
+        "body": [
+            "${1:LayerName}:",
+            "  Type: AWS::Serverless::LayerVersion",
+            "  Properties:",
+            "    LayerName: ${1/([A-Z])/_${1:/downcase}/g}",
+            "    Description: ${2:description}",
+            "    ContentUri: ./layers/wdm/python/lib/python${3:3.8}/site-packages",
+            "    CompatibleRuntimes:",
+            "      - python${3}",
+            "  Metadata:",
+            "    BuildMethod: python${3}"
+        ],
+        "description": "Create a new layer definition in a template file"
+    },
+}

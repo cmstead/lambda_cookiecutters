@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+pytest-approvaltests = "*"
+pytest = "*"
+
+[requires]
+python_version = "{{cookiecutter.python_version}}"
+
+[scripts]
+test = "python{{cookiecutter.python_version}} -m pytest"
+test-with-approvals = "python{{cookiecutter.python_version}} -m pytest --approvaltests-add-reporter='bcompare'"
