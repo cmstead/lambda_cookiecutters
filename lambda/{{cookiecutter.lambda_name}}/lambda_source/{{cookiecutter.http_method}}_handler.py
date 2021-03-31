@@ -2,15 +2,13 @@ import json
 import logging
 import traceback
 
-import wdm
-
 import {{cookiecutter.base_module_name}}
 
 def lambda_handler(event, context):
     # """Uncomment and create docstring here if you are going to add one"""
 
     try:
-        {{cookiecutter.lambda_name}} = {{cookiecutter.base_module_name}}.{{cookiecutter.base_class_name}}(wdm)
+        {{cookiecutter.lambda_name}} = {{cookiecutter.base_module_name}}.{{cookiecutter.base_class_name}}()
 
         # do work and get outcome
 

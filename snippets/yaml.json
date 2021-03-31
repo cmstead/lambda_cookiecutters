@@ -38,7 +38,7 @@
             "  Properties:",
             "    LayerName: ${1/([A-Z])/_${1:/downcase}/g}",
             "    Description: ${2:description}",
-            "    ContentUri: ./layers/wdm/python/lib/python${3:3.8}/site-packages",
+            "    ContentUri: ./layers/${1/(.*)/${1:/downcase}/}/python/lib/python${3:3.8}/site-packages",
             "    CompatibleRuntimes:",
             "      - python${3}",
             "  Metadata:",
