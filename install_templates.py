@@ -12,7 +12,7 @@ cookiecutters_directory = os.path.realpath(os.path.join(user_directory, ".cookie
 local_directory = os.path.dirname(os.path.realpath(__file__))
 
 def join_path(path_base, *args):
-    return os.path.realpath(os.path.join(local_directory, *args))
+    return os.path.realpath(os.path.join(path_base, *args))
 
 def copy_cookiecutter(name):
     source_path = join_path(local_directory, name)
@@ -21,8 +21,7 @@ def copy_cookiecutter(name):
     try:
         shutil.rmtree(destination_path)
     except:
-        # file probably doesn't exist
-        pass
+        pass # file probably doesn't exist
 
     shutil.copytree(source_path, destination_path)
 
